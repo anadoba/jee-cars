@@ -1,8 +1,8 @@
 #!/bin/sh
 
 echo "************ UNDEPLOYING *******************"
-asadmin undeploy jeedemo
+asadmin undeploy cars
 echo "************ BUILDING **********************"
 mvn package
 echo "************ DEPLOYING *********************"
-asadmin deploy target/jeedemo.war
+asadmin deploy target/cars.war

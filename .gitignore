@@ -9,12 +9,12 @@ syntax: glob
 # logs
 *.log
 
-# eclipse conf file
+# Eclipse
 .settings
 .settings/
 .classpath
 .project
-
+.springBeans
 
 
 # building
@@ -27,6 +27,15 @@ test-output
 .svn
 .CVS
 .hg*
+
+# Idea
+.idea/
+*.iml
+*.iws
+
+# Maven
+log/
+target/
 
 # switch to regexp syntax.
 #  syntax: regexp

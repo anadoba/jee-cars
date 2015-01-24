@@ -1,4 +1,4 @@
-package com.example.jeedemo.domain;
+package pl.nadoba.cars.domain;
 
 import java.util.ArrayList;
 import java.util.Date;

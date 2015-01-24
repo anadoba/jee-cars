@@ -1,4 +1,4 @@
-package com.example.jeedemo.web;
+package pl.nadoba.cars.web;
 
 import java.io.Serializable;
 
@@ -7,10 +7,10 @@ import javax.faces.model.ListDataModel;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import com.example.jeedemo.domain.Car;
-import com.example.jeedemo.domain.Person;
-import com.example.jeedemo.service.PersonManager;
-import com.example.jeedemo.service.SellingManager;
+import pl.nadoba.cars.domain.Car;
+import pl.nadoba.cars.domain.Person;
+import pl.nadoba.cars.service.PersonManager;
+import pl.nadoba.cars.service.SellingManager;
 
 @SessionScoped
 @Named("personBean")
