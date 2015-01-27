@@ -65,10 +65,11 @@ public class PersonFormBean implements Serializable {
 		personToShow = persons.getRowData();
 		return "details";
 	}
-	
+/*
 	public String disposeCar(){
 		Car carToDispose = ownedCars.getRowData();
 		sm.disposeCar(personToShow, carToDispose);
 		return null;
 	}
+*/
 }

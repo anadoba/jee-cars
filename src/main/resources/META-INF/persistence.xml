@@ -15,7 +15,7 @@
 		<!-- <jta-data-source>java:/DefaultDS</jta-data-source> -->
 		
 		<!-- Use this data source name for Glassfish -->
-		<!--  <jta-data-source>jdbc/__default</jta-data-source> -->
+		<!-- <jta-data-source>jdbc/__default</jta-data-source> -->
 
 		<jta-data-source>jdbc/demoapps</jta-data-source>
 		

@@ -19,7 +19,7 @@ public class SellingManager {
 
 	@PersistenceContext
 	EntityManager em;
-
+/*
 	public void sellCar(Long personId, Long carId) {
 
 		Person person = em.find(Person.class, personId);
@@ -28,12 +28,12 @@ public class SellingManager {
 
 		person.getCars().add(car);
 	}
-
+*/
 	@SuppressWarnings("unchecked")
 	public List<Car> getAvailableCars() {
 		return em.createNamedQuery("car.unsold").getResultList();
 	}
-
+/*
 	public void disposeCar(Person person, Car car) {
 
 		person = em.find(Person.class, person.getId());
@@ -52,4 +52,5 @@ public class SellingManager {
 		
 		car.setSold(false);
 	}
+*/
 }

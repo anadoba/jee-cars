@@ -48,8 +48,10 @@ public class SaleFormBean implements Serializable {
 		return pm.getAllPersons();
 	}
 
+/*
 	public String sellCar() {
 		sm.sellCar(personId, carId);
 		return null;
 	}
+*/
 }

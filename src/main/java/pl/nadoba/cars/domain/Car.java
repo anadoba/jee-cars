@@ -1,44 +1,70 @@
 package pl.nadoba.cars.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.NamedQuery;
+import javax.persistence.*;
+import java.sql.Date;
 
 @Entity
-@NamedQuery(name = "car.unsold", query = "Select c from Car c where c.sold = false")
+@NamedQueries({
+        @NamedQuery(name = "car.all", query = "Select c from Car c")
+})
 public class Car {
-	
+
+    @Id
+    @GeneratedValue
 	private Long id;
-	private String make;
+
+    @ManyToOne
+    @JoinColumn(name = "makeId")
+    private Make make;
+
+    @ManyToOne
+    @JoinColumn(name = "engineId")
+    private Engine engine;
+
+    @Column(unique = true, nullable = false)
 	private String model;
-	private Boolean sold = false;
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	public Long getId() {
-		return id;
-	}
-	public void setId(Long id) {
-		this.id = id;
-	}
-	public String getMake() {
-		return make;
-	}
-	public void setMake(String make) {
-		this.make = make;
-	}
-	public String getModel() {
-		return model;
-	}
-	public void setModel(String model) {
-		this.model = model;
-	}
-	public Boolean getSold() {
-		return sold;
-	}
-	public void setSold(Boolean sold) {
-		this.sold = sold;
-	}
+
+    @Column(nullable = true)
+	private Date productionDate;
+
+    @Column(nullable = false)
+	private Integer price;
+
+
+    public Long getId() {
+        return id;
+    }
+    public void setId(Long id) {
+        this.id = id;
+    }
+    public Make getMake() {
+        return make;
+    }
+    public void setMake(Make make) {
+        this.make = make;
+    }
+    public Engine getEngine() {
+        return engine;
+    }
+    public void setEngine(Engine engine) {
+        this.engine = engine;
+    }
+    public String getModel() {
+        return model;
+    }
+    public void setModel(String model) {
+        this.model = model;
+    }
+    public Date getProductionDate() {
+        return productionDate;
+    }
+    public void setProductionDate(Date productionDate) {
+        this.productionDate = productionDate;
+    }
+    public Integer getPrice() {
+        return price;
+    }
+    public void setPrice(Integer price) {
+        this.price = price;
+    }
 }
