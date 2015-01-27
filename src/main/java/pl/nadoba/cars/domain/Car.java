@@ -1,7 +1,7 @@
 package pl.nadoba.cars.domain;
 
 import javax.persistence.*;
-import java.sql.Date;
+import java.util.Date;
 
 @Entity
 @NamedQueries({
@@ -25,7 +25,7 @@ public class Car {
 	private String model;
 
     @Column(nullable = true)
-	private Date productionDate;
+	private java.util.Date productionDate;
 
     @Column(nullable = false)
 	private Integer price;

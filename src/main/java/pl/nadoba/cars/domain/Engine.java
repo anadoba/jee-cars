@@ -1,6 +1,7 @@
 package pl.nadoba.cars.domain;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -21,7 +22,7 @@ public class Engine {
     private Integer horsepower;
 
     @OneToMany(targetEntity = Car.class, cascade = CascadeType.ALL)
-    private List<Car> cars;
+    private List<Car> cars = new ArrayList<Car>();
 
 
     public Long getId() {

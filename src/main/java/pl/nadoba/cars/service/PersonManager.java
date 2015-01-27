@@ -30,12 +30,12 @@ public class PersonManager {
 	public List<Person> getAllPersons() {
 		return em.createNamedQuery("person.all").getResultList();
 	}
-
+/*
 	public List<Car> getOwnedCars(Person person) {
 		person = em.find(Person.class, person.getId());
 		// lazy loading here - try this code without this (shallow) copying
 		List<Car> cars = new ArrayList<Car>(person.getCars());
 		return cars;
 	}
-
+*/
 }

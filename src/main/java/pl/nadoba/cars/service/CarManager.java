@@ -14,7 +14,7 @@ public class CarManager {
     @PersistenceContext
     EntityManager em;
 
-    public void addCar(Car car) {
+    public void add(Car car) {
         car.setId(null);
         em.persist(car);
     }
@@ -24,8 +24,4 @@ public class CarManager {
         return em.createNamedQuery("car.all").getResultList();
     }
 
-    @SuppressWarnings("unchecked")
-    public List<Make> getAllMakes() {
-        return em.createNamedQuery("make.all").getResultList();
-    }
 }

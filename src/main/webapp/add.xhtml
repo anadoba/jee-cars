@@ -11,13 +11,33 @@
 		<h:form id="carForm">
 			<h:panelGrid columns="2">
 
+                <h:outputText value="#{msg.carMakeLabel}" />
+                <h:selectOneMenu value="#{carBean.makeId}">
+                    <f:selectItems value="#{carBean.allMakes}" var="make"
+                       itemValue="#{make.id}" itemLabel="#{make.name}" />
+                </h:selectOneMenu>
 
-			</h:panelGrid>
+                <h:outputText value="#{msg.carModelLabel}" />
+                <h:inputText id="model" value="#{carBean.car.model}"
+                             required="#{true}" />
 
-            <h:selectOneMenu value="#{carBean.car.make}">
-                <f:selectItems value="#{carBean.availableMakes}" var="make"
-                               itemValue="#{make.id}" itemLabel="#{make.name}" />
-            </h:selectOneMenu>
+                <h:outputText value="#{msg.carEngineLabel}" />
+                <h:selectOneMenu value="#{carBean.engineId}">
+                    <f:selectItems value="#{carBean.allEngines}" var="engine"
+                       itemValue="#{engine.id}" itemLabel="#{engine.type} - #{engine.capacity}ccm - #{engine.horsepower}HP" />
+                </h:selectOneMenu>
+
+                <h:outputText value="#{msg.carProductionDateLabel}" />
+                <rich:calendar value="#{carBean.car.productionDate}"
+                               id="calendar" datePattern="dd.MM.yyyy" showApplyButton="#{true}"
+                               style="width:200px">
+                </rich:calendar>
+
+                <h:outputText value="#{msg.carPriceLabel}" />
+                <h:inputText id="price" value="#{carBean.car.price}" >
+                </h:inputText>
+
+            </h:panelGrid>
 
 			<h:commandButton value="#{msg.personFormOKButton}"
 				action="#{carBean.addCar}" />
