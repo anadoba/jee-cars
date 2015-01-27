@@ -22,16 +22,16 @@ public class EngineManager {
         return em.find(Engine.class, id);
     }
 
-    public void add(Engine Engine) {
-        Engine.setId(null);
-        em.persist(Engine);
+    public void add(Engine engine) {
+        engine.setId(null);
+        em.persist(engine);
     }
 
-    public void update(Engine Engine) {
-        em.merge(Engine);
+    public void update(Engine engine) {
+        em.merge(engine);
     }
 
-    public void delete(Engine Engine) {
-        em.remove(em.merge(Engine));
+    public void delete(Engine engine) {
+        em.remove(em.merge(engine));
     }
 }

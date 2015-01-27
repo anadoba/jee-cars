@@ -14,12 +14,12 @@ public class Car {
     @GeneratedValue
 	private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "makeId")
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.REFRESH)
+    //@JoinColumn(name = "makeId")
     private Make make;
 
-    @ManyToOne
-    @JoinColumn(name = "engineId")
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.REFRESH)
+    //@JoinColumn(name = "engineId")
     private Engine engine;
 
     @Column(unique = true, nullable = false)

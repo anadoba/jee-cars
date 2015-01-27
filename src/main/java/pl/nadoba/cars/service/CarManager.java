@@ -14,14 +14,25 @@ public class CarManager {
     @PersistenceContext
     EntityManager em;
 
-    public void add(Car car) {
-        car.setId(null);
-        em.persist(car);
-    }
-
     @SuppressWarnings("unchecked")
     public List<Car> getAllCars() {
         return em.createNamedQuery("car.all").getResultList();
     }
 
+    public Car getCarById(Long id) {
+        return em.find(Car.class, id);
+    }
+
+    public void add(Car car) {
+        car.setId(null);
+        em.persist(car);
+    }
+
+    public void update(Car car) {
+        em.merge(car);
+    }
+
+    public void delete(Car car) {
+        em.remove(em.find(Car.class, car.getId()));
+    }
 }

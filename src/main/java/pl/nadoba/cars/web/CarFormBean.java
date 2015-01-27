@@ -51,6 +51,12 @@ public class CarFormBean implements Serializable {
         return "showCars";
     }
 
+    public String deleteCar() {
+        Car carToDelete = cars.getRowData();
+        carManager.delete(carToDelete);
+        return null;
+    }
+
     public Car getCar() {
         return car;
     }

@@ -21,7 +21,9 @@ public class Engine {
 
     private Integer horsepower;
 
-    @OneToMany(targetEntity = Car.class, cascade = CascadeType.ALL)
+     //@OneToMany(targetEntity = Car.class, cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
+    //@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "engine")
+    @OneToMany
     private List<Car> cars = new ArrayList<Car>();
 
 

@@ -24,7 +24,9 @@ public class Make {
     @Column(nullable = true)
     private String description;
 
-    @OneToMany(targetEntity = Car.class, cascade = CascadeType.ALL)
+    //@OneToMany(targetEntity = Car.class, cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
+    //@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "make")
+    @OneToMany
     private List<Car> cars = new ArrayList<Car>();
 
 
