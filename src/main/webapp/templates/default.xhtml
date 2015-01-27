@@ -2,28 +2,62 @@
    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets">
 <h:head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title><ui:insert name="windowTitle">#{msg.mainWindowTitle}</ui:insert>
-	</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <h1 align="center">
+        <ui:insert name="windowTitle">#{msg.mainWindowTitle}</ui:insert>
+    </h1>
+    <h2 align="center" id="czas" class="czas">
+    </h2>
+    <script type="text/javascript">
+			function getTime()
+			{
+				return (new Date()).toLocaleTimeString();
+			}
+			document.getElementById('czas').innerHTML = getTime();
+			setInterval(function() {
+				document.getElementById('czas').innerHTML = getTime();
+			}, 1000);
+    </script>
+    <link href="resources/css/bootstrap.css" rel="stylesheet"/>
+    <link href="resources/css/bootstrap-theme.css" rel="stylesheet"/>
 </h:head>
 <h:body>
-  <h:outputStylesheet library="css" name="default.css" target="body" />
-	<div class="heading">
-	  <ui:insert name="heading">
-       #{msg.mainHeading}
-     </ui:insert>
+    <h:outputStylesheet library="css" name="bootstrap.css" target="body" />
+    <div class="alert alert-success">
+        <strong style="margin-left:96px">
+            <ui:insert name="page-header">
+                #{msg.mainHeading}
+            </ui:insert>
+        </strong>
     </div>
-	<div class="menuAndContent">
-	 <div class="menu">
-	   <ui:insert name="menu">
-         <ui:include src="/views/main/menu.xhtml" />
-       </ui:insert>
-      </div>
-	  <div class="content">
-	     <ui:insert name="content" />
-       </div>
-	</div>
+    <div class="menuAndContent">
+        <div class="menu">
+            <ui:insert name="menu">
+                <ui:include src="/views/main/menu.xhtml" />
+            </ui:insert>
+        </div>
+        <br/>
+        <div class="alert alert-success">
+        </div>
+        <div class="content" style="margin-left:64px">
+            <ui:insert name="content" />
+        </div>
+    </div>
+
+    <div class="alert alert-success">
+    </div>
+
+    <h:form>
+        <f:view locale="#{language.locale}">
+            <h:commandLink class="btn btn-primary" value="English" action="#{language.switchLanguage('en')}"
+                           style="margin-left:64px"/>
+            <h:commandLink class="btn btn-danger" value="Polski" action="#{language.switchLanguage('pl')}"
+                           style="margin-left:32px"/>
+
+        </f:view>
+    </h:form>
 </h:body>
 </html>

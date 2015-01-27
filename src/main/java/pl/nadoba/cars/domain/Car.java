@@ -1,6 +1,7 @@
 package pl.nadoba.cars.domain;
 
 import javax.persistence.*;
+import javax.validation.constraints.Past;
 import java.util.Date;
 
 @Entity
@@ -25,6 +26,7 @@ public class Car {
 	private String model;
 
     @Column(nullable = true)
+    @Past
 	private java.util.Date productionDate;
 
     @Column(nullable = false)

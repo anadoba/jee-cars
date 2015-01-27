@@ -10,10 +10,10 @@ INSERT INTO engine(type, capacity, horsepower) VALUES ('lpg', 2000, 180)
 INSERT INTO engine(type, capacity, horsepower) VALUES ('petrol', 3000, 340)
 INSERT INTO engine(type, capacity, horsepower) VALUES ('diesel', 2000, 110)
 
-INSERT INTO car(engineId, makeId, model, price, productionDate) VALUES (1, 2, '325 Coupe', 160000, '2012-07-20 00:00:00.0')
+INSERT INTO car(engineId, makeId, model, price, productionDate) VALUES (2, 1, '325 Coupe', 160000, '2012-07-20 00:00:00.0')
 INSERT INTO engine_car(engine_id, cars_id) VALUES (2, 1)
 INSERT INTO make_car(make_id, cars_id) VALUES (1, 1)
 
-INSERT INTO car(engineId, makeId, model, price, productionDate) VALUES (4, 5, 'S80', 340000, '2013-11-01 00:00:00.0')
+INSERT INTO car(engineId, makeId, model, price, productionDate) VALUES (4, 5, 'S80', 240000, '2013-11-01 00:00:00.0')
 INSERT INTO engine_car(engine_id, cars_id) VALUES (4, 1)
 INSERT INTO make_car(make_id, cars_id) VALUES (5, 1)
