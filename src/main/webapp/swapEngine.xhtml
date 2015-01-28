@@ -14,7 +14,7 @@
                 <h:outputText value="#{msg.carModelLabel}" />
                 <h:selectOneMenu value="#{carBean.carToSwap}">
                     <f:selectItems value="#{carBean.allCars}" var="car"
-                                   itemValue="#{car.id}" itemLabel="#{car.model}" />
+                                   itemValue="#{car.id}" itemLabel="#{car.make.name} #{car.model}" />
                 </h:selectOneMenu>
 
                 <h:outputText value="#{msg.carEngineLabel}" />

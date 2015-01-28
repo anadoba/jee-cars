@@ -2,6 +2,7 @@ package pl.nadoba.cars.domain;
 
 import javax.persistence.*;
 import javax.validation.constraints.Past;
+import javax.validation.constraints.Size;
 import java.util.Date;
 
 @Entity
@@ -26,6 +27,7 @@ public class Car {
     private Engine engine;
 
     @Column(unique = true, nullable = false)
+    @Size(min = 3, max = 20)
 	private String model;
 
     @Column(nullable = true)
