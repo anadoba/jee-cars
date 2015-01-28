@@ -50,6 +50,18 @@ public class CarManager {
         engine.getCars().add(em.find(Car.class, carr.getId()));
     }
 
+    public void swapEngines(Long carId, Long engineId) {
+        Car car = em.find(Car.class, carId);
+        Long oldEngineId = car.getEngine().getId();
+        car.setEngine(em.find(Engine.class, engineId));
+        em.merge(car);
+        Engine oldEngine = em.find(Engine.class, oldEngineId);
+        oldEngine.getCars().remove(em.find(Car.class, carId));
+
+        Engine engine = em.find(Engine.class, engineId);
+        engine.getCars().add(em.find(Car.class, carId));
+    }
+
     public void update(Car car) {
         em.merge(car);
     }

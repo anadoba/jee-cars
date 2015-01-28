@@ -30,6 +30,9 @@ public class CarFormBean implements Serializable {
 
     private String countryToSearch;
 
+    private Long carToSwap;
+    private Long engineToSwap;
+
     private Car car = new Car();
     private ListDataModel<Car> cars = new ListDataModel<Car>();
 
@@ -74,6 +77,11 @@ public class CarFormBean implements Serializable {
         return null;
     }
 
+    public String swapEngine(){
+        carManager.swapEngines(carToSwap, engineToSwap);
+        return "showCars";
+    }
+
     public Car getCar() {
         return car;
     }
@@ -103,5 +111,21 @@ public class CarFormBean implements Serializable {
 
     public void setCountryToSearch(String countryToSearch) {
         this.countryToSearch = countryToSearch;
+    }
+
+    public Long getCarToSwap() {
+        return carToSwap;
+    }
+
+    public void setCarToSwap(Long carToSwap) {
+        this.carToSwap = carToSwap;
+    }
+
+    public Long getEngineToSwap() {
+        return engineToSwap;
+    }
+
+    public void setEngineToSwap(Long engineToSwap) {
+        this.engineToSwap = engineToSwap;
     }
 }
