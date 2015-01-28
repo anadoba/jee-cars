@@ -6,7 +6,9 @@ import java.util.Date;
 
 @Entity
 @NamedQueries({
-        @NamedQuery(name = "car.all", query = "Select c from Car c")
+        @NamedQuery(name = "car.all", query = "Select c from Car c"),
+        @NamedQuery(name = "car.byCountry", query = "Select c from Car c where c.make.country like :country"),
+        @NamedQuery(name = "car.fastOnes", query = "Select c from Car c where c.engine.horsepower > 300")
 })
 public class Car {
 

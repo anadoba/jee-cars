@@ -14,8 +14,11 @@
             <h:commandLink class="btn btn-success" action="showCars?faces-redirect=true" style="margin-left:64px">
                 <h:outputText value="#{msg.carAllLabel}" />
             </h:commandLink>
-            <h:commandLink class="btn btn-success" action="sell?faces-redirect=true" style="margin-left:64px">
-                <h:outputText value="sprzedaj " />
+            <h:commandLink class="btn btn-warning" action="fastCars?faces-redirect=true" style="margin-left:64px">
+                <h:outputText value="#{msg.carFastLabel}" />
+            </h:commandLink>
+            <h:commandLink class="btn btn-warning" action="searchByCountry?faces-redirect=true" style="margin-left:64px">
+                <h:outputText value="#{msg.carNationalLabel}" />
             </h:commandLink>
         </h:form>
     </div>

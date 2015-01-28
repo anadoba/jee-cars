@@ -28,12 +28,29 @@ public class CarFormBean implements Serializable {
     private Long engineId;
     private Long makeId;
 
+    private String countryToSearch;
+
     private Car car = new Car();
     private ListDataModel<Car> cars = new ListDataModel<Car>();
 
     public ListDataModel<Car> getAllCars() {
         cars.setWrappedData(carManager.getAllCars());
         return cars;
+    }
+
+    public ListDataModel<Car> getFastCars() {
+        cars.setWrappedData(carManager.getFastCars());
+        return cars;
+    }
+
+    public ListDataModel<Car> getCarsFrom() {
+        cars.setWrappedData(carManager.getCarsFrom(countryToSearch));
+        return cars;
+    }
+
+    public String refreshSearch() {
+        getCarsFrom();
+        return null;
     }
 
     public List<Engine> getAllEngines() {
@@ -47,7 +64,7 @@ public class CarFormBean implements Serializable {
     public String addCar() {
         car.setEngine(engineManager.getEngineById(engineId));
         car.setMake(makeManager.getMakeById(makeId));
-        carManager.add(car);
+        carManager.add(car, engineId, makeId);
         return "showCars";
     }
 
@@ -78,5 +95,13 @@ public class CarFormBean implements Serializable {
 
     public void setMakeId(Long makeId) {
         this.makeId = makeId;
+    }
+
+    public String getCountryToSearch() {
+        return countryToSearch;
+    }
+
+    public void setCountryToSearch(String countryToSearch) {
+        this.countryToSearch = countryToSearch;
     }
 }

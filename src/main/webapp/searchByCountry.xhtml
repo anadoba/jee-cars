@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                template="/templates/default.xhtml">
+
+    <ui:define name="content">
+        <h:form>
+
+            <f:facet name="header">#{msg.carNationalLabel}</f:facet>
+
+            <h:outputText value="#{msg.carCountryLabel}" />
+            <h:inputText value="#{carBean.countryToSearch}"/>
+            <h:commandLink class="btn btn-success" action="refreshSearch" >
+                <h:outputText value="#{msg.personFormOKButton}" />
+            </h:commandLink>
+
+            <h:dataTable class ="table table-striped" value="#{carBean.carsFrom}" var="car">
+
+                <h:column>
+                    <f:facet name="header">#{msg.carMakeLabel}</f:facet>
+                    #{car.make.name}
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">#{msg.carModelLabel}</f:facet>
+                    #{car.model}
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">#{msg.carEngineLabel}</f:facet>
+                    #{car.engine.type}
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">#{msg.carProductionDateLabel}</f:facet>
+                    <h:outputText value="#{car.productionDate}">
+                        <f:convertDateTime type="date" pattern="dd-MM-yyyy"/>
+                    </h:outputText>
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">#{msg.carPriceLabel}</f:facet>
+                    #{car.price} PLN
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">#{msg.carCountryLabel}</f:facet>
+                    #{car.make.country}
+                </h:column>
+
+            </h:dataTable>
+        </h:form>
+
+    </ui:define>
+
+</ui:composition>
