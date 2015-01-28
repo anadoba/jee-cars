@@ -27,7 +27,13 @@ public class CarManager {
 
     @SuppressWarnings("unchecked")
     public List<Car> getCarsFrom(String country) {
-        return em.createNamedQuery("car.byCountry").setParameter("country", "%"+country+"%").getResultList();
+        return em.createNamedQuery("car.byCountry").setParameter("country", "%" + country + "%").getResultList();
+    }
+
+    @SuppressWarnings("unchecked")
+    public List<Car> getCarsFor(int min, int max) {
+        return em.createNamedQuery("car.byCash").setParameter("minCash", min)
+                .setParameter("maxCash", max).getResultList();
     }
 
     public Car getCarById(Long id) {

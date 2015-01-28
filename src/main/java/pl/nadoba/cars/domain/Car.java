@@ -8,7 +8,8 @@ import java.util.Date;
 @NamedQueries({
         @NamedQuery(name = "car.all", query = "Select c from Car c"),
         @NamedQuery(name = "car.byCountry", query = "Select c from Car c where c.make.country like :country"),
-        @NamedQuery(name = "car.fastOnes", query = "Select c from Car c where c.engine.horsepower > 300")
+        @NamedQuery(name = "car.fastOnes", query = "Select c from Car c where c.engine.horsepower > 300"),
+        @NamedQuery(name = "car.byCash", query = "Select c from Car c where (c.price >= :minCash) and (c.price <= :maxCash)")
 })
 public class Car {
 

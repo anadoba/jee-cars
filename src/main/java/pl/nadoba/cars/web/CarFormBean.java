@@ -33,6 +33,9 @@ public class CarFormBean implements Serializable {
     private Long carToSwap;
     private Long engineToSwap;
 
+    private String minCash = "";
+    private String maxCash = "";
+
     private Car car = new Car();
     private ListDataModel<Car> cars = new ListDataModel<Car>();
 
@@ -51,8 +54,20 @@ public class CarFormBean implements Serializable {
         return cars;
     }
 
+    public ListDataModel<Car> getCarsFor() {
+        int min = (minCash.length() != 0) ? Integer.parseInt(minCash) : (int) 1;
+        int max = (maxCash.length() != 0) ? Integer.parseInt(maxCash) : (int) 2;
+        cars.setWrappedData(carManager.getCarsFor(min, max));
+        return cars;
+    }
+
     public String refreshSearch() {
         getCarsFrom();
+        return null;
+    }
+
+    public String refreshCash() {
+        getCarsFor();
         return null;
     }
 
@@ -127,5 +142,21 @@ public class CarFormBean implements Serializable {
 
     public void setEngineToSwap(Long engineToSwap) {
         this.engineToSwap = engineToSwap;
+    }
+
+    public String getMinCash() {
+        return minCash;
+    }
+
+    public void setMinCash(String minCash) {
+        this.minCash = minCash;
+    }
+
+    public String getMaxCash() {
+        return maxCash;
+    }
+
+    public void setMaxCash(String maxCash) {
+        this.maxCash = maxCash;
     }
 }
